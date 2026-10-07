@@ -269,3 +269,39 @@ h3 { font-size: 1.15rem; font-weight: 600; }
     }
   }
 }
+/* Cadres compétences : fond bleu marine, assorti au terminal */
+.skill-card {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(420px 220px at 100% 0%, rgba(56, 189, 248, .22), transparent 70%),
+    linear-gradient(160deg, #10315c 0%, #0b2347 100%);
+  border: 1px solid #1d4a82;
+  box-shadow: 0 14px 34px rgba(11, 35, 71, .28);
+}
+.skill-card::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, #2f80ff, #6fd3ff);
+}
+.skill-card:hover {
+  border-color: #4fb8ff;
+  box-shadow: 0 22px 48px rgba(21, 101, 216, .35);
+}
+.skill-card h3 { color: #ffffff; }
+.skill-sub { color: #6fd3ff; }
+.skill-list li { color: #cfe0f7; }
+.skill-list li::before { background: #6fd3ff; }
+.skill-icon {
+  background: rgba(111, 211, 255, .12);
+  border-color: rgba(111, 211, 255, .35);
+  color: #6fd3ff;
+}
+.pills li {
+  color: #dcebff;
+  background: rgba(255, 255, 255, .07);
+  border-color: rgba(143, 190, 255, .30);
+}
+.pills li:hover { border-color: #6fd3ff; color: #6fd3ff; }
