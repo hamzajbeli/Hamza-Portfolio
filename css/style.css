@@ -1,12 +1,12 @@
 :root {
-  --bg: #0b0818;
-  --panel: #151030;
-  --panel-2: #1e1744;
-  --line: #34296b;
-  --text: #f0ecfb;
-  --muted: #aaa3cc;
-  --accent: #a78bfa;
-  --accent-ink: #140a2e;
+  --bg: #0a0a0c;
+  --panel: #141418;
+  --panel-2: #1c1c22;
+  --line: #32323b;
+  --text: #f2f0ea;
+  --muted: #a6a39a;
+  --accent: #e8b04a;
+  --accent-ink: #1a1203;
   --ok: #4ade80;
   --radius: 10px;
   --maxw: 1080px;
@@ -16,10 +16,10 @@
 html { scroll-behavior: smooth; scroll-padding-top: 72px; }
 body {
   margin: 0;
-      background:
-    radial-gradient(900px 520px at 88% -4%, rgba(167, 139, 250, .20), transparent 60%),
-    radial-gradient(800px 520px at 0% 8%, rgba(236, 72, 153, .12), transparent 60%),
-    linear-gradient(180deg, #0b0818 0%, #130d2e 50%, #0b0818 100%);
+  background:
+    radial-gradient(900px 520px at 88% -4%, rgba(232, 176, 74, .13), transparent 60%),
+    radial-gradient(800px 520px at 0% 8%, rgba(120, 120, 140, .10), transparent 60%),
+    linear-gradient(180deg, #0a0a0c 0%, #111116 50%, #0a0a0c 100%);
   color: var(--text);
   font-family: "IBM Plex Sans", system-ui, sans-serif;
   font-size: 1.0625rem;
