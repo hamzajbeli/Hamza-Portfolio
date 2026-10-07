@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hamza Jbeli | Ingénieur cybersécurité, réseaux et SOC</title>
+  <meta name="description" content="Portfolio de Hamza Jbeli, étudiant ingénieur en cybersécurité (sécurité des réseaux et systèmes) : SOC, SIEM/SOAR, DevSecOps, tests d'intrusion.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+
+  <header class="nav">
+    <div class="wrap nav-in">
+      <a class="logo" href="#accueil" aria-label="Accueil">HJ</a>
+      <nav aria-label="Navigation principale">
+        <a href="#apropos">À propos</a>
+        <a href="#competences">Compétences</a>
+        <a href="#projets">Projets</a>
+        <a href="#parcours">Parcours</a>
+        <a href="#certifications">Certifications</a>
+        <a class="btn-nav" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <!-- Accueil -->
+    <section class="hero wrap" id="accueil">
+      <div class="hero-text">
+        <p class="status"><span class="dot" aria-hidden="true"></span>Disponible pour un stage PFE ou un poste en sécurité</p>
+        <h1>Hamza Jbeli</h1>
+        <p class="lead">Étudiant ingénieur en cybersécurité, spécialisé en sécurité des réseaux et des systèmes. Je construis des environnements de détection (SOC, SIEM/SOAR) et des pipelines DevSecOps.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projets">Voir mes projets</a>
+          <a class="btn" href="assets/cv.pdf">Télécharger mon CV</a>
+        </div>
+      </div>
+
+      <div class="term" role="img" aria-label="Résumé du profil sous forme de terminal">
+        <div class="term-bar"><span></span><span></span><span></span><b>hamza@portfolio:~</b></div>
+        <pre class="term-body"><span class="l"><i>$</i> whoami</span>
+<span class="l out">hamza-jbeli</span>
+<span class="l"><i>$</i> cat profil.txt</span>
+<span class="l out">formation   ingénieur cybersécurité, Tek-Up</span>
+<span class="l out">spécialité  sécurité réseaux et systèmes</span>
+<span class="l out">terrain     SOC, SIEM/SOAR, DevSecOps, pentest</span>
+<span class="l out">recherche   stage PFE, sécurité réseau et SOC</span>
+<span class="l"><i>$</i> ls certifications/</span>
+<span class="l out">RHCSA  CCSC  CPPS  OCI-AI-Foundations</span>
+<span class="l"><i>$</i> <em class="cursor"></em></span></pre>
+      </div>
+    </section>
+
+    <!-- À propos -->
+    <section class="wrap section" id="apropos">
+      <h2>À propos</h2>
+      <div class="about">
+        <div class="prose">
+          <p>Je suis en dernière année du cycle ingénieur en cybersécurité à Tek-Up University (Tunisie), avec une spécialisation en sécurité des réseaux et des systèmes.</p>
+          <p>Mes projets tournent autour d'une question : comment détecter plus tôt et répondre plus vite ? J'ai travaillé sur un SOC augmenté par l'IA, un détecteur de beaconing, de la détection d'anomalies sur Zabbix et des tests d'intrusion, et je sécurise mes livraisons avec des pipelines GitLab CI.</p>
+          <p>Je cherche un stage de fin d'études ou un premier poste où je pourrai travailler sur la détection, la sécurité réseau et l'automatisation.</p>
+        </div>
+        <img class="photo" src="assets/img/photo.jpg" alt="Portrait de Hamza Jbeli" width="240" height="240" onerror="this.style.display='none'">
+      </div>
+    </section>
+
+    <!-- Compétences -->
+    <section class="wrap section" id="competences">
+      <h2>Compétences</h2>
+      <div class="cols">
+        <article class="panel">
+          <h3>Cybersécurité et SOC</h3>
+          <ul class="list">
+            <li>SIEM et SOAR</li>
+            <li>Détection d'anomalies et de malware</li>
+            <li>Détection du phishing</li>
+            <li>Analyse de trafic et de beaconing</li>
+            <li>Tests d'intrusion (OWASP Juice Shop)</li>
+            <li>Machine learning appliqué à la détection</li>
+          </ul>
+          <ul class="tags" aria-label="Outils">
+            <li>Python</li><li>Zabbix</li><li>Linux</li><li>OWASP Juice Shop</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <h3>Réseaux, systèmes et DevSecOps</h3>
+          <ul class="list">
+            <li>Conception de topologies réseau sécurisées</li>
+            <li>Pare-feu et segmentation</li>
+            <li>Durcissement des postes et des serveurs</li>
+            <li>Protection anti-DDoS applicative (couche 7)</li>
+            <li>Conteneurisation et durcissement Docker</li>
+            <li>Pipelines CI/CD et détection de secrets</li>
+          </ul>
+          <ul class="tags" aria-label="Outils">
+            <li>Docker</li><li>Docker Compose</li><li>GitLab CI</li><li>Git</li><li>gitleaks</li><li>Red Hat Linux</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Projets -->
+    <section class="wrap section" id="projets">
+      <h2>Projets</h2>
+      <p class="sub">Une sélection de projets académiques et personnels. Le code est sur mon GitHub quand il peut être public.</p>
+
+      <div class="grid">
+        <!-- Remplace chaque lien par l'URL exacte du dépôt, par exemple https://github.com/hamzajbeli/ai-soc-siem-soar -->
+        <article class="card">
+          <h3>SOC complet avec IA</h3>
+          <p>Un SOC qui combine SIEM, SOAR et modèles de machine learning pour détecter les menaces réseau, système, malware et phishing.</p>
+          <ul class="tags"><li>SIEM</li><li>SOAR</li><li>ML</li></ul>
+          <a href="https://github.com/hamzajbeli?tab=repositories">Voir le code</a>
+        </article>
+
+        <article class="card">
+          <h3>Beaconing Periodicity Detector</h3>
+          <p>Un outil Python qui repère les communications périodiques vers l'extérieur, signe typique d'une machine compromise qui contacte son serveur de commande.</p>
+          <ul class="tags"><li>Python</li><li>Ubuntu 22.04</li><li>Threat detection</li></ul>
+          <a href="https://github.com/hamzajbeli?tab=repositories">Voir le code</a>
+        </article>
+
+        <article class="card">
+          <h3>AIOps avec Zabbix</h3>
+          <p>Détection d'anomalies et prédiction de pannes par machine learning, intégrées à la supervision Zabbix.</p>
+          <ul class="tags"><li>Zabbix</li><li>ML</li><li>Supervision</li></ul>
+          <a href="https://github.com/hamzajbeli?tab=repositories">Voir le code</a>
+        </article>
+
+        <article class="card">
+          <h3>Tests d'intrusion</h3>
+          <p>Test d'intrusion sur OWASP Juice Shop et conception d'une plateforme centralisée pour piloter les tests.</p>
+          <ul class="tags"><li>Pentest</li><li>OWASP</li></ul>
+          <a href="https://github.com/hamzajbeli?tab=repositories">Voir le code</a>
+        </article>
+
+        <article class="card">
+          <h3>Anti-DDoS applicatif</h3>
+          <p>Architecture de prévention des attaques DDoS de couche 7, construite avec des outils open source. Projet réalisé en binôme.</p>
+          <ul class="tags"><li>Couche 7</li><li>Open source</li></ul>
+          <a href="https://github.com/hamzajbeli?tab=repositories">Voir le code</a>
+        </article>
+
+        <article class="card">
+          <h3>Labs DevSecOps</h3>
+          <p>Git collaboratif avec détection de secrets, conteneurisation d'une application Spring Boot, pile Docker Compose et pipeline GitLab CI jusqu'au déploiement.</p>
+          <ul class="tags"><li>Docker</li><li>GitLab CI</li><li>gitleaks</li></ul>
+          <a href="https://github.com/hamzajbeli?tab=repositories">Voir le code</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Parcours -->
+    <section class="wrap section" id="parcours">
+      <h2>Parcours</h2>
+      <ol class="timeline">
+        <li>
+          <time>Depuis 2024</time>
+          <div>
+            <h3>Cycle ingénieur en cybersécurité, Tek-Up University</h3>
+            <p>Dernière année, spécialisation en sécurité des réseaux et des systèmes.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Certifications -->
+    <section class="wrap section" id="certifications">
+      <h2>Certifications</h2>
+      <ul class="certs">
+        <li><b>RHCSA</b><span>Red Hat Certified System Administrator</span></li>
+        <li><b>CCSC</b><span>Certified Cybersecurity Specialist</span></li>
+        <li><b>CPPS</b><span>Certified Phishing Prevention Specialist</span></li>
+        <li><b>OCI AI Foundations</b><span>Oracle Cloud Infrastructure, niveau Associate</span></li>
+      </ul>
+    </section>
+
+    <!-- Contact -->
+    <section class="wrap section contact" id="contact">
+      <h2>Contact</h2>
+      <p class="sub">Un stage, un projet ou une question ? Écris-moi, je réponds rapidement.</p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:ton.email@exemple.com">Envoyer un email</a>
+        <a class="btn" href="https://www.linkedin.com/in/TON-PROFIL/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/hamzajbeli" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">© 2026 Hamza Jbeli</div>
+  </footer>
+</body>
+</html>
