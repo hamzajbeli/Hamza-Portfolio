@@ -9,6 +9,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Style de la fenêtre d'aperçu des projets -->
+  <style>
+    .proj-open { color: inherit; text-decoration: none; cursor: pointer; }
+    .proj-open:hover, .proj-open:focus-visible { text-decoration: underline; }
+    .pm { position: fixed; inset: 0; background: rgba(0,0,0,.65); display: flex;
+          align-items: center; justify-content: center; padding: 1rem; z-index: 1000; }
+    .pm[hidden] { display: none; }
+    .pm-box { background: #111827; color: #e5e7eb; max-width: 640px; width: 100%;
+              max-height: 85vh; overflow-y: auto; border-radius: 14px;
+              padding: 2rem; position: relative; }
+    .pm-box h3 { margin-top: 0; color: #fff; }
+    .pm-box h4 { margin: 1.2rem 0 .3rem; color: #fff; }
+    .pm-box a { color: inherit; }
+    .pm-close { position: absolute; top: .6rem; right: 1rem; background: none;
+                border: 0; color: inherit; font-size: 1.8rem; cursor: pointer; }
+  </style>
 </head>
 <body>
   <a class="skip" href="#contenu">Aller au contenu</a>
@@ -61,7 +78,7 @@
       <div class="about">
         <div class="prose">
           <p>Je suis en dernière année du cycle ingénieur en cybersécurité à Tek-Up University (Tunisie), avec une spécialisation en sécurité des réseaux et des systèmes.</p>
-          <p>Mes projets tournent autour d'une question : comment détecter plus tôt et répondre plus vite ? J'ai travaillé sur un SOC augmenté par l'IA, un détecteur de beaconing, de la détection d'anomalies sur Zabbix et des tests d'intrusion, et je sécurise mes livraisons avec des pipelines GitLab CI.</p>
+          <p>Mes projets tournent autour d'une question : comment détecter plus tôt et répondre plus vite ? J'ai déployé un SOC avec Wazuh, Suricata et Shuffle, mis en place un pipeline CI/CD sécurisé, développé une plateforme de pentesting et travaillé sur la détection du beaconing.</p>
           <p>Je cherche un stage de fin d'études ou un premier poste où je pourrai travailler sur la détection, la sécurité réseau et l'automatisation.</p>
         </div>
         <img class="photo" src="assets/img/photo.jpg" alt="Portrait de Hamza Jbeli" width="240" height="240" onerror="this.style.display='none'">
@@ -69,7 +86,7 @@
     </section>
 
     <!-- Compétences -->
-                <section class="wrap section" id="competences">
+    <section class="wrap section" id="competences">
       <h2>Compétences</h2>
       <div class="skills">
 
@@ -162,45 +179,92 @@
     </section>
 
     <!-- Projets -->
-        <section class="wrap section" id="projets">
+    <section class="wrap section" id="projets">
       <h2>Projets</h2>
-      <p class="sub">Projets académiques et personnels. Le code est sur mon GitHub quand il peut être public.</p>
+      <p class="sub">Projets académiques et personnels. Clique sur le nom d'un projet pour voir les détails.</p>
 
       <div class="grid">
-        <!-- Remplace chaque lien par l'URL exacte du dépôt quand il sera créé -->
+        <!-- Remplace chaque lien "Voir le code" par l'URL exacte du dépôt quand il sera créé -->
+
         <article class="card reveal">
-          <h3>Plateforme centralisée de pentesting</h3>
+          <h3><a href="#" class="proj-open">Plateforme centralisée de pentesting</a></h3>
           <p>Plateforme web développée avec Python (Flask) et SQLite pour orchestrer des scans de vulnérabilités et générer automatiquement des rapports détaillés.</p>
           <ul class="tags"><li>Flask</li><li>SQLite</li><li>Nmap</li><li>SQLMap</li></ul>
           <a href="https://github.com/hamzajbeli?tab=repositories">Voir le code</a>
+
+          <div class="proj-detail" hidden>
+            <h4>Objectif</h4>
+            <p>Centraliser au même endroit le lancement des scans de vulnérabilités et la production des rapports.</p>
+            <h4>Fonctionnement</h4>
+            <p>Une application web Flask pilote des outils comme Nmap et SQLMap, enregistre les résultats dans une base SQLite, puis génère le rapport.</p>
+            <h4>Résultats</h4>
+            <p>Des rapports détaillés produits automatiquement à partir des scans, sans manipulation manuelle des sorties d'outils.</p>
+            <!-- Ajoute ici tes captures ou chiffres réels (nombre de cibles, temps gagné, etc.) -->
+          </div>
         </article>
 
         <article class="card reveal">
-          <h3>Test d'intrusion OWASP Juice Shop</h3>
+          <h3><a href="#" class="proj-open">Test d'intrusion OWASP Juice Shop</a></h3>
           <p>Identification et exploitation de vulnérabilités (injection SQL, XSS, IDOR), puis analyse des risques avec le score CVSS.</p>
           <ul class="tags"><li>Burp Suite</li><li>OWASP ZAP</li><li>CVSS</li></ul>
           <a href="https://github.com/hamzajbeli?tab=repositories">Voir le code</a>
+
+          <div class="proj-detail" hidden>
+            <h4>Objectif</h4>
+            <p>Réaliser un test d'intrusion complet sur OWASP Juice Shop, une application web volontairement vulnérable.</p>
+            <h4>Démarche</h4>
+            <p>Identification puis exploitation de failles de type injection SQL, XSS et IDOR, avec Burp Suite et OWASP ZAP.</p>
+            <h4>Résultats</h4>
+            <p>Chaque vulnérabilité est évaluée avec le score CVSS pour hiérarchiser les risques et proposer des corrections.</p>
+          </div>
         </article>
 
         <article class="card reveal">
-          <h3>Infrastructure DevSecOps et SOC automatisé</h3>
+          <h3><a href="#" class="proj-open">Infrastructure DevSecOps et SOC automatisé</a></h3>
           <p>Pipeline CI/CD sécurisé (analyse de code, conteneurs durcis) et SOC automatisé avec Ansible pour la détection et la réponse aux incidents.</p>
           <ul class="tags"><li>Jenkins</li><li>SonarQube</li><li>Trivy</li><li>Wazuh</li><li>Suricata</li><li>Shuffle</li><li>Ansible</li></ul>
           <a href="https://github.com/hamzajbeli?tab=repositories">Voir le code</a>
+
+          <div class="proj-detail" hidden>
+            <h4>Objectif</h4>
+            <p>Sécuriser la chaîne de livraison logicielle et automatiser le déploiement d'un SOC.</p>
+            <h4>Pipeline CI/CD</h4>
+            <p>Jenkins orchestre le build, SonarQube analyse le code et Trivy scanne les images de conteneurs durcis.</p>
+            <h4>SOC automatisé</h4>
+            <p>Wazuh et Suricata assurent la détection, Shuffle automatise la réponse aux incidents, et Ansible déploie l'ensemble de façon reproductible.</p>
+          </div>
         </article>
 
         <article class="card reveal">
-          <h3>SOC : détection du beaconing</h3>
+          <h3><a href="#" class="proj-open">SOC : détection du beaconing</a></h3>
           <p>Détection automatique du beaconing C2 en analysant la périodicité des connexions réseau, une menace invisible pour les outils de sécurité classiques.</p>
           <ul class="tags"><li>Zeek</li><li>Elasticsearch</li><li>Beaconing</li></ul>
           <a href="https://github.com/hamzajbeli?tab=repositories">Voir le code</a>
+
+          <div class="proj-detail" hidden>
+            <h4>Problème</h4>
+            <p>Un malware qui contacte son serveur C2 à intervalles réguliers passe souvent inaperçu des outils de sécurité classiques.</p>
+            <h4>Approche</h4>
+            <p>Les connexions réseau sont collectées avec Zeek et indexées dans Elasticsearch. L'analyse de leur périodicité fait ressortir les communications suspectes.</p>
+            <h4>Résultats</h4>
+            <p>Détection automatique du beaconing C2 intégrée à la logique d'un SOC.</p>
+          </div>
         </article>
 
         <article class="card reveal">
-          <h3>Sécurité blockchain : front-running</h3>
+          <h3><a href="#" class="proj-open">Sécurité blockchain : front-running</a></h3>
           <p>Analyse des vulnérabilités des smart contracts, en particulier le front-running, et bonnes pratiques de développement Web3 sécurisé.</p>
           <ul class="tags"><li>Solidity</li><li>Blockchain</li><li>Smart contracts</li></ul>
           <a href="https://github.com/hamzajbeli?tab=repositories">Voir le code</a>
+
+          <div class="proj-detail" hidden>
+            <h4>Sujet</h4>
+            <p>Le front-running consiste à observer une transaction en attente et à en envoyer une autre avec des frais plus élevés pour passer avant elle.</p>
+            <h4>Travail réalisé</h4>
+            <p>Analyse des vulnérabilités des smart contracts Solidity, en particulier le front-running.</p>
+            <h4>Apport</h4>
+            <p>Bonnes pratiques de développement Web3 sécurisé pour limiter ce type d'attaque.</p>
+          </div>
         </article>
 
         <article class="card reveal">
@@ -251,5 +315,52 @@
   <footer class="foot">
     <div class="wrap">© 2026 Hamza Jbeli</div>
   </footer>
+
+  <!-- Fenêtre d'aperçu des projets -->
+  <div id="projModal" class="pm" hidden>
+    <div class="pm-box" role="dialog" aria-modal="true" aria-label="Détails du projet">
+      <button class="pm-close" aria-label="Fermer">×</button>
+      <div id="pmContent"></div>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var modal = document.getElementById('projModal');
+    var content = document.getElementById('pmContent');
+    var lastFocus = null;
+
+    function close() {
+      modal.hidden = true;
+      document.body.style.overflow = '';
+      if (lastFocus) lastFocus.focus();
+    }
+
+    document.querySelectorAll('.proj-open').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        lastFocus = link;
+        var card = link.closest('article');
+        var tags = card.querySelector('.tags');
+        var detail = card.querySelector('.proj-detail');
+        var code = card.querySelector(':scope > a');
+        content.innerHTML =
+          '<h3>' + link.textContent + '</h3>' +
+          (tags ? tags.outerHTML : '') +
+          (detail ? detail.innerHTML : '') +
+          (code ? '<p><a href="' + code.href + '">Voir le code</a></p>' : '');
+        modal.hidden = false;
+        document.body.style.overflow = 'hidden';
+        modal.querySelector('.pm-close').focus();
+      });
+    });
+
+    modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
+    modal.querySelector('.pm-close').addEventListener('click', close);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !modal.hidden) close();
+    });
+  })();
+  </script>
 </body>
 </html>
