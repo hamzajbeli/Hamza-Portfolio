@@ -184,3 +184,4 @@ h3 { font-size: 1.15rem; font-weight: 600; }
   .l { opacity: 1; animation: none; }
   .cursor { animation: none; }
 }
+.panel h3 + .tags { margin-top: 0; }
