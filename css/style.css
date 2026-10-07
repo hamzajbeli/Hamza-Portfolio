@@ -92,12 +92,23 @@ h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 700; letter-spacing: -.
 }
 .btn.primary:hover { filter: brightness(1.08); }
 
-/* ===== Fond animé de l'accueil =====
-   UNE SEULE COULEUR pilote tout : change --hb-rgb (R, G, B) */
+/* ===== Accueil : fond bleu marine + points lumineux =====
+   Change les 3 couleurs ci-dessous (R, G, B) pour changer la palette */
 .hero-zone {
-  --hb-rgb: 16, 49, 92;
+  --hb-rgb: 111, 211, 255;  /* points et lignes principaux (cyan clair) */
+  --hb-acc: 129, 140, 248;  /* accent indigo */
+  --hb-hi:  96, 165, 250;   /* accent bleu clair */
   position: relative; overflow: hidden; isolation: isolate;
+  background:
+    radial-gradient(700px 380px at 85% 20%, rgba(56, 189, 248, .22), transparent 70%),
+    radial-gradient(640px 420px at 0% 100%, rgba(79, 70, 229, .26), transparent 70%),
+    linear-gradient(160deg, #10315c 0%, #0b2347 100%);
 }
+
+/* Texte de l'accueil lisible sur fond foncé */
+.hero-zone h1 { color: #ffffff; }
+.hero-zone .lead { color: #cfe0f7; }
+.hero-zone .status { color: #a9c4e8; }
 
 .hero-bg {
   position: absolute; inset: 0; z-index: -1; pointer-events: none;
@@ -108,8 +119,8 @@ h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 700; letter-spacing: -.
 .hb-grid {
   position: absolute; inset: 0;
   background-image:
-    linear-gradient(rgba(var(--hb-rgb), .05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(var(--hb-rgb), .05) 1px, transparent 1px);
+    linear-gradient(rgba(var(--hb-rgb), .08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--hb-rgb), .08) 1px, transparent 1px);
   background-size: 56px 56px;
   -webkit-mask-image: radial-gradient(ellipse 75% 85% at 62% 45%, #000 15%, transparent 75%);
           mask-image: radial-gradient(ellipse 75% 85% at 62% 45%, #000 15%, transparent 75%);
@@ -119,29 +130,39 @@ h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 700; letter-spacing: -.
 .hb-glow { position: absolute; width: 560px; height: 560px; border-radius: 50%; }
 .hb-glow.g1 {
   top: -180px; left: -120px;
-  background: radial-gradient(circle, rgba(var(--hb-rgb), .05), transparent 65%);
+  background: radial-gradient(circle, rgba(var(--hb-acc), .30), transparent 65%);
   animation: hb-drift-a 18s ease-in-out infinite;
 }
 .hb-glow.g2 {
   bottom: -220px; right: -100px;
-  background: radial-gradient(circle, rgba(var(--hb-rgb), .04), transparent 65%);
+  background: radial-gradient(circle, rgba(var(--hb-rgb), .20), transparent 65%);
   animation: hb-drift-b 22s ease-in-out infinite;
 }
 
+/* Réseau de points */
 .hb-net { position: absolute; inset: 0; width: 100%; height: 100%; }
 .hb-lines line {
-  stroke: rgba(var(--hb-rgb), .16); stroke-width: 1;
+  stroke: rgba(var(--hb-rgb), .38); stroke-width: 1;
   stroke-dasharray: 3 9;
   animation: hb-flow 7s linear infinite;
 }
 .hb-nodes circle {
-  fill: rgb(var(--hb-rgb)); opacity: .45; r: 2.6px;
+  fill: rgb(var(--hb-rgb)); r: 3.4px;
+  filter: drop-shadow(0 0 6px rgba(var(--hb-rgb), .9));
   transform-box: fill-box; transform-origin: center;
-  animation: hb-pulse-soft 4.5s ease-in-out infinite;
+  animation: hb-pulse-glow 4.5s ease-in-out infinite;
 }
 .hb-nodes circle:nth-child(2n) { animation-delay: -1.2s; }
-.hb-nodes circle:nth-child(3n) { animation-delay: -2.4s; }
-.hb-nodes circle:nth-child(5n) { animation-delay: -3.4s; }
+.hb-nodes circle:nth-child(3n) {
+  animation-delay: -2.4s;
+  fill: rgb(var(--hb-acc));
+  filter: drop-shadow(0 0 6px rgba(var(--hb-acc), .9));
+}
+.hb-nodes circle:nth-child(5n) {
+  animation-delay: -3.4s;
+  fill: rgb(var(--hb-hi));
+  filter: drop-shadow(0 0 6px rgba(var(--hb-hi), .9));
+}
 
 /* Visuel de l'accueil : bouclier de sécurité */
 .hero-visual {
@@ -150,23 +171,23 @@ h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 700; letter-spacing: -.
 }
 .hero-visual .ring { position: absolute; border-radius: 50%; }
 .hero-visual .r1 {
-  inset: 6%; border: 1.5px dashed rgba(var(--hb-rgb), .30);
+  inset: 6%; border: 1.5px dashed rgba(var(--hb-rgb), .45);
   animation: hv-spin 40s linear infinite;
 }
 .hero-visual .r2 {
-  inset: 22%; border: 1.5px solid rgba(var(--hb-rgb), .16);
-  background: radial-gradient(circle, rgba(var(--hb-rgb), .08), transparent 70%);
+  inset: 22%; border: 1.5px solid rgba(var(--hb-rgb), .28);
+  background: radial-gradient(circle, rgba(var(--hb-acc), .20), transparent 70%);
 }
 .hero-visual .shield {
   position: relative; z-index: 1;
   width: 34%; height: auto;
-  filter: drop-shadow(0 18px 30px rgba(21, 101, 216, .35));
+  filter: drop-shadow(0 18px 34px rgba(56, 189, 248, .45));
 }
 .hero-visual .chip {
   position: absolute; z-index: 2; background: var(--panel); color: var(--text);
   border: 1px solid var(--line); border-radius: 999px;
   padding: .45rem .9rem; font-weight: 600; font-size: .9rem;
-  box-shadow: 0 8px 20px rgba(15, 39, 66, .10);
+  box-shadow: 0 8px 20px rgba(5, 15, 35, .30);
 }
 .hero-visual .c1 { top: 6%; left: 50%; transform: translateX(-50%); }
 .hero-visual .c2 { right: 0; top: 50%; transform: translateY(-50%); }
@@ -178,13 +199,13 @@ h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 700; letter-spacing: -.
   background: conic-gradient(from 0deg,
     rgba(var(--hb-rgb), 0) 0deg,
     rgba(var(--hb-rgb), 0) 285deg,
-    rgba(var(--hb-rgb), .14) 359deg,
+    rgba(var(--hb-rgb), .32) 359deg,
     rgba(var(--hb-rgb), 0) 360deg);
   animation: hv-spin 7s linear infinite;
 }
 .hero-visual .ping {
   position: absolute; inset: 22%; border-radius: 50%;
-  border: 1.5px solid rgba(var(--hb-rgb), .28);
+  border: 1.5px solid rgba(var(--hb-rgb), .45);
   animation: hb-ping 4s ease-out infinite;
 }
 .hero-visual .ping.p2 { animation-delay: 2s; }
@@ -194,9 +215,9 @@ h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 700; letter-spacing: -.
 @keyframes hb-drift-a { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(70px, 50px); } }
 @keyframes hb-drift-b { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-80px, -40px); } }
 @keyframes hb-flow { to { stroke-dashoffset: -48; } }
-@keyframes hb-pulse-soft {
-  0%, 100% { opacity: .35; transform: scale(1); }
-  50%      { opacity: .75; transform: scale(1.35); }
+@keyframes hb-pulse-glow {
+  0%, 100% { opacity: .7; transform: scale(1); }
+  50%      { opacity: 1;  transform: scale(1.4); }
 }
 @keyframes hb-ping {
   from { transform: scale(1); opacity: .55; }
@@ -426,53 +447,3 @@ h3 { font-size: 1.15rem; font-weight: 600; }
   font-size: 1.9rem; line-height: 1; cursor: pointer;
 }
 .pm-close:hover { color: #6fd3ff; }
-/* ===== Couleurs du fond animé : bleu royal + indigo + cyan ===== */
-.hero-zone {
-  --hb-rgb: 37, 99, 235;   /* couleur principale (bleu royal) */
-  --hb-acc: 99, 102, 241;  /* accent 1 (indigo) */
-  --hb-hi:  6, 182, 212;   /* accent 2 (cyan profond) */
-}
-
-.hb-grid {
-  background-image:
-    linear-gradient(rgba(var(--hb-rgb), .07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(var(--hb-rgb), .07) 1px, transparent 1px);
-}
-
-.hb-glow.g1 { background: radial-gradient(circle, rgba(var(--hb-acc), .10), transparent 65%); }
-.hb-glow.g2 { background: radial-gradient(circle, rgba(var(--hb-hi), .08), transparent 65%); }
-
-.hb-lines line { stroke: rgba(var(--hb-rgb), .32); }
-
-.hb-nodes circle {
-  fill: rgb(var(--hb-rgb)); r: 3.2px;
-  filter: drop-shadow(0 0 4px rgba(var(--hb-rgb), .65));
-  animation-name: hb-pulse-glow;
-}
-.hb-nodes circle:nth-child(3n) {
-  fill: rgb(var(--hb-acc));
-  filter: drop-shadow(0 0 4px rgba(var(--hb-acc), .65));
-}
-.hb-nodes circle:nth-child(5n) {
-  fill: rgb(var(--hb-hi));
-  filter: drop-shadow(0 0 4px rgba(var(--hb-hi), .65));
-}
-
-.hero-visual .r1 { border-color: rgba(var(--hb-rgb), .42); }
-.hero-visual .r2 {
-  border-color: rgba(var(--hb-rgb), .25);
-  background: radial-gradient(circle, rgba(var(--hb-acc), .10), transparent 70%);
-}
-.hero-visual .sweep {
-  background: conic-gradient(from 0deg,
-    rgba(var(--hb-hi), 0) 0deg,
-    rgba(var(--hb-hi), 0) 285deg,
-    rgba(var(--hb-hi), .24) 359deg,
-    rgba(var(--hb-hi), 0) 360deg);
-}
-.hero-visual .ping { border-color: rgba(var(--hb-rgb), .40); }
-
-@keyframes hb-pulse-glow {
-  0%, 100% { opacity: .65; transform: scale(1); }
-  50%      { opacity: 1;   transform: scale(1.4); }
-}
