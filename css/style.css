@@ -432,3 +432,46 @@ h3 { font-size: 1.15rem; font-weight: 600; }
   .hero-visual .sweep, .hero-visual .ping { animation: none; }
   .hero-visual .ping { display: none; }
 }
+/* ===== Fond animé : couleurs adaptées au fond global ===== */
+.hero-zone {
+  --hb-line: rgba(21, 101, 216, .13);   /* lignes du réseau */
+  --hb-node: #8dbbf2;                   /* points */
+  --hb-node-2: #a5dcf7;                 /* points secondaires (cyan clair) */
+  --hb-grid: rgba(21, 101, 216, .05);   /* grille */
+  --hb-glow-1: rgba(56, 189, 248, .14); /* halo en haut à gauche */
+  --hb-glow-2: rgba(21, 101, 216, .08); /* halo en bas à droite */
+  --hb-sweep: rgba(56, 189, 248, .16);  /* radar */
+  --hb-ping: rgba(21, 101, 216, .28);   /* ondes */
+}
+
+.hb-grid {
+  background-image:
+    linear-gradient(var(--hb-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--hb-grid) 1px, transparent 1px);
+}
+.hb-glow.g1 { background: radial-gradient(circle, var(--hb-glow-1), transparent 65%); }
+.hb-glow.g2 { background: radial-gradient(circle, var(--hb-glow-2), transparent 65%); }
+
+.hb-lines line { stroke: var(--hb-line); }
+
+.hb-nodes circle {
+  fill: var(--hb-node);
+  opacity: .55;
+  r: 2.6px;
+  animation-name: hb-pulse-soft;
+}
+.hb-nodes circle:nth-child(5n) { fill: var(--hb-node-2); }
+
+.hero-visual .sweep {
+  background: conic-gradient(from 0deg,
+    rgba(56, 189, 248, 0) 0deg,
+    rgba(56, 189, 248, 0) 285deg,
+    var(--hb-sweep) 359deg,
+    rgba(56, 189, 248, 0) 360deg);
+}
+.hero-visual .ping { border-color: var(--hb-ping); }
+
+@keyframes hb-pulse-soft {
+  0%, 100% { opacity: .35; transform: scale(1); }
+  50%      { opacity: .75; transform: scale(1.35); }
+}
