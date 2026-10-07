@@ -30,12 +30,13 @@ body {
 h1, h2, h3 { font-family: "Sora", system-ui, sans-serif; line-height: 1.2; margin: 0; }
 p { margin: 0 0 1em; }
 a { color: var(--accent); }
-a:focus-visible, .btn:focus-visible {
+a:focus-visible, .btn:focus-visible, .pm-close:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 6px;
 }
 ul, ol { margin: 0; padding: 0; list-style: none; }
+[hidden] { display: none !important; }
 
 .wrap { width: min(100% - 2.5rem, var(--maxw)); margin-inline: auto; }
 .skip {
@@ -104,7 +105,6 @@ h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 700; letter-spacing: -.
           mask-image: linear-gradient(#000 0, #000 75%, transparent 100%);
 }
 
-/* Grille discrète qui avance lentement */
 .hb-grid {
   position: absolute; inset: 0;
   background-image:
@@ -116,7 +116,6 @@ h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 700; letter-spacing: -.
   animation: hb-grid 40s linear infinite;
 }
 
-/* Halos très légers (le fond global de la page fait déjà l'essentiel) */
 .hb-glow { position: absolute; width: 560px; height: 560px; border-radius: 50%; }
 .hb-glow.g1 {
   top: -180px; left: -120px;
@@ -129,7 +128,6 @@ h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 700; letter-spacing: -.
   animation: hb-drift-b 22s ease-in-out infinite;
 }
 
-/* Réseau de nœuds */
 .hb-net { position: absolute; inset: 0; width: 100%; height: 100%; }
 .hb-lines line {
   stroke: rgba(var(--hb-rgb), .16); stroke-width: 1;
@@ -175,7 +173,6 @@ h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 700; letter-spacing: -.
 .hero-visual .c3 { bottom: 6%; left: 50%; transform: translateX(-50%); }
 .hero-visual .c4 { left: 0; top: 50%; transform: translateY(-50%); }
 
-/* Radar et ondes */
 .hero-visual .sweep {
   position: absolute; inset: 6%; border-radius: 50%;
   background: conic-gradient(from 0deg,
@@ -406,7 +403,6 @@ h3 { font-size: 1.15rem; font-weight: 600; }
   padding: 1rem; background: rgba(8, 22, 45, .7);
   backdrop-filter: blur(3px);
 }
-.pm[hidden] { display: none; }
 .pm-box {
   position: relative; width: 100%; max-width: 640px; max-height: 85vh;
   overflow-y: auto; padding: 2rem; border-radius: 16px;
