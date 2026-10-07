@@ -91,35 +91,35 @@ h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 700; letter-spacing: -.
 }
 .btn.primary:hover { filter: brightness(1.08); }
 
-/* Terminal (reste sombre pour le contraste) */
-.term {
-  background: #0b1b33; border: 1px solid #1f3a63; border-radius: 12px;
-  box-shadow: 0 20px 50px rgba(15, 39, 66, .25); overflow: hidden;
+/* Visuel de l'accueil : bouclier de sécurité */
+.hero-visual {
+  position: relative; width: min(100%, 380px); aspect-ratio: 1;
+  margin: 0 auto; display: grid; place-items: center;
 }
-.term-bar { display: flex; align-items: center; gap: 6px; padding: .7rem .9rem; background: #12294a; border-bottom: 1px solid #1f3a63; }
-.term-bar span { width: 11px; height: 11px; border-radius: 50%; background: #2c4a78; }
-.term-bar b { margin-left: .6rem; font: 400 .8rem "JetBrains Mono", monospace; color: #8fa9cf; }
-.term-body {
-  margin: 0; padding: 1.1rem 1.2rem 1.3rem;
-  font: 400 .88rem/1.85 "JetBrains Mono", ui-monospace, monospace;
-  color: #e6efff; overflow-x: auto; white-space: pre;
+.hero-visual .ring { position: absolute; border-radius: 50%; }
+.hero-visual .r1 {
+  inset: 6%; border: 1.5px dashed rgba(21, 101, 216, .35);
+  animation: hv-spin 40s linear infinite;
 }
-.term-body i { color: #5cc8ff; font-style: normal; margin-right: .5ch; }
-.term-body .out { color: #8fa9cf; }
-.l { display: block; opacity: 0; animation: line .01s forwards; }
-.l:nth-child(1) { animation-delay: .2s; }
-.l:nth-child(2) { animation-delay: .5s; }
-.l:nth-child(3) { animation-delay: .9s; }
-.l:nth-child(4) { animation-delay: 1.2s; }
-.l:nth-child(5) { animation-delay: 1.4s; }
-.l:nth-child(6) { animation-delay: 1.6s; }
-.l:nth-child(7) { animation-delay: 1.8s; }
-.l:nth-child(8) { animation-delay: 2.2s; }
-.l:nth-child(9) { animation-delay: 2.5s; }
-.l:nth-child(10) { animation-delay: 2.8s; }
-@keyframes line { to { opacity: 1; } }
-.cursor { display: inline-block; width: .6ch; height: 1.05em; background: #5cc8ff; vertical-align: text-bottom; animation: blink 1s steps(1) infinite; }
-@keyframes blink { 50% { opacity: 0; } }
+.hero-visual .r2 {
+  inset: 22%; border: 1.5px solid rgba(21, 101, 216, .18);
+  background: radial-gradient(circle, rgba(56, 189, 248, .16), transparent 70%);
+}
+.hero-visual .shield {
+  width: 34%; height: auto;
+  filter: drop-shadow(0 18px 30px rgba(21, 101, 216, .35));
+}
+.hero-visual .chip {
+  position: absolute; background: var(--panel); color: var(--text);
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: .45rem .9rem; font-weight: 600; font-size: .9rem;
+  box-shadow: 0 8px 20px rgba(15, 39, 66, .10);
+}
+.hero-visual .c1 { top: 6%; left: 50%; transform: translateX(-50%); }
+.hero-visual .c2 { right: 0; top: 50%; transform: translateY(-50%); }
+.hero-visual .c3 { bottom: 6%; left: 50%; transform: translateX(-50%); }
+.hero-visual .c4 { left: 0; top: 50%; transform: translateY(-50%); }
+@keyframes hv-spin { to { transform: rotate(360deg); } }
 
 /* Sections */
 .section { padding-block: 4rem; border-top: 1px solid var(--line); }
@@ -165,6 +165,10 @@ h3 { font-size: 1.15rem; font-weight: 600; }
 .card .tags { margin-top: .2rem; }
 .card > a { margin-top: 1.2rem; font-weight: 600; text-decoration: none; }
 .card > a:hover { text-decoration: underline; }
+
+/* Titre de projet cliquable */
+.proj-open { color: inherit; text-decoration: none; cursor: pointer; }
+.proj-open:hover, .proj-open:focus-visible { color: var(--accent); text-decoration: underline; }
 
 .timeline li { display: grid; grid-template-columns: 9rem 1fr; gap: 1.5rem; padding-block: .4rem; }
 .timeline time { color: var(--accent); font: 500 .9rem "JetBrains Mono", monospace; padding-top: .25rem; }
@@ -238,12 +242,12 @@ h3 { font-size: 1.15rem; font-weight: 600; }
 }
 @media (max-width: 560px) {
   .skill-list { grid-template-columns: 1fr; }
+  .hero-visual .chip { font-size: .8rem; padding: .35rem .7rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .l { opacity: 1; animation: none; }
-  .cursor { animation: none; }
+  .hero-visual .r1 { animation: none; }
 }
 
 /* Animation : chaque bloc apparaît quand on arrive dessus */
@@ -269,7 +273,8 @@ h3 { font-size: 1.15rem; font-weight: 600; }
     }
   }
 }
-/* Cadres compétences : fond bleu marine, assorti au terminal */
+
+/* Cadres compétences : fond bleu marine */
 .skill-card {
   position: relative;
   overflow: hidden;
@@ -305,3 +310,35 @@ h3 { font-size: 1.15rem; font-weight: 600; }
   border-color: rgba(143, 190, 255, .30);
 }
 .pills li:hover { border-color: #6fd3ff; color: #6fd3ff; }
+
+/* Fenêtre d'aperçu des projets (bleu marine, comme les cartes compétences) */
+.pm {
+  position: fixed; inset: 0; z-index: 1000;
+  display: flex; align-items: center; justify-content: center;
+  padding: 1rem; background: rgba(8, 22, 45, .7);
+  backdrop-filter: blur(3px);
+}
+.pm[hidden] { display: none; }
+.pm-box {
+  position: relative; width: 100%; max-width: 640px; max-height: 85vh;
+  overflow-y: auto; padding: 2rem; border-radius: 16px;
+  background:
+    radial-gradient(420px 220px at 100% 0%, rgba(56, 189, 248, .22), transparent 70%),
+    linear-gradient(160deg, #10315c 0%, #0b2347 100%);
+  border: 1px solid #1d4a82; color: #cfe0f7;
+  box-shadow: 0 30px 70px rgba(5, 15, 35, .5);
+}
+.pm-box h3 { margin: 0 2rem .8rem 0; color: #ffffff; font-size: 1.4rem; }
+.pm-box h4 { margin: 1.3rem 0 .3rem; color: #6fd3ff; font-size: 1rem; }
+.pm-box p { color: #cfe0f7; }
+.pm-box a { color: #6fd3ff; font-weight: 600; }
+.pm-box .tags li {
+  color: #dcebff; background: rgba(255, 255, 255, .07);
+  border-color: rgba(143, 190, 255, .30);
+}
+.pm-close {
+  position: absolute; top: .6rem; right: 1rem;
+  background: none; border: 0; color: #dcebff;
+  font-size: 1.9rem; line-height: 1; cursor: pointer;
+}
+.pm-close:hover { color: #6fd3ff; }
