@@ -185,3 +185,66 @@ h3 { font-size: 1.15rem; font-weight: 600; }
   .cursor { animation: none; }
 }
 .panel h3 + .tags { margin-top: 0; }
+/* Compétences en cartes */
+.skills { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; align-items: stretch; }
+.skill-card {
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 16px; padding: 1.8rem;
+  display: flex; flex-direction: column;
+  transition: border-color .2s, translate .2s, box-shadow .2s;
+}
+.skill-card:hover {
+  border-color: var(--accent); translate: 0 -4px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .3);
+}
+.skill-icon {
+  width: 56px; height: 56px; display: grid; place-items: center;
+  background: var(--panel-2); border: 1px solid var(--line);
+  border-radius: 14px; color: var(--accent); margin-bottom: 1.4rem;
+}
+.skill-card h3 { font-size: 1.4rem; margin-bottom: .5rem; }
+.skill-sub { color: var(--accent); font-weight: 600; margin-bottom: 1.2rem; }
+.skill-list {
+  display: grid; grid-template-columns: 1fr 1fr; gap: .55rem 1.4rem;
+  margin-bottom: 1.6rem;
+}
+.skill-list li { position: relative; padding-left: 1.1rem; color: #cbd8ec; font-size: .98rem; line-height: 1.45; }
+.skill-list li::before {
+  content: ""; position: absolute; left: 0; top: .6em;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+}
+.pills { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: auto; }
+.pills li {
+  font-size: .75rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+  color: var(--text); background: var(--panel-2); border: 1px solid var(--line);
+  padding: .45rem .9rem; border-radius: 999px;
+  transition: border-color .15s, color .15s;
+}
+.pills li:hover { border-color: var(--accent); color: var(--accent); }
+
+@media (max-width: 960px) { .skills { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .skill-list { grid-template-columns: 1fr; } }
+
+/* Animation : chaque bloc apparaît quand on arrive dessus */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(36px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes pop {
+  from { opacity: 0; transform: scale(.85); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+    .skill-list li, .pills li {
+      animation: pop linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 100%;
+    }
+  }
+}
