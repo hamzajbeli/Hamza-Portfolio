@@ -447,3 +447,36 @@ h3 { font-size: 1.15rem; font-weight: 600; }
   font-size: 1.9rem; line-height: 1; cursor: pointer;
 }
 .pm-close:hover { color: #6fd3ff; }
+/* ===== À propos : cadre bleu marine ===== */
+#apropos .about {
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 2.4rem 2.6rem;
+  border-radius: 16px;
+  border: 1px solid #1d4a82;
+  background:
+    radial-gradient(420px 220px at 100% 0%, rgba(56, 189, 248, .22), transparent 70%),
+    linear-gradient(160deg, #10315c 0%, #0b2347 100%);
+  box-shadow: 0 14px 34px rgba(11, 35, 71, .28);
+}
+#apropos .about::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, #2f80ff, #6fd3ff);
+}
+#apropos .prose { max-width: 48em; }
+#apropos .prose p { color: #cfe0f7; }
+#apropos .prose p:last-child { margin-bottom: 0; }
+#apropos .prose strong { color: #ffffff; }
+#apropos .photo {
+  border: 2px solid rgba(111, 211, 255, .45);
+  box-shadow: 0 12px 30px rgba(5, 15, 35, .45);
+}
+
+@media (max-width: 720px) {
+  #apropos .about { padding: 1.6rem 1.3rem; gap: 1.5rem; }
+}
