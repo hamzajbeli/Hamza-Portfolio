@@ -426,3 +426,53 @@ h3 { font-size: 1.15rem; font-weight: 600; }
   font-size: 1.9rem; line-height: 1; cursor: pointer;
 }
 .pm-close:hover { color: #6fd3ff; }
+/* ===== Couleurs du fond animé : bleu royal + indigo + cyan ===== */
+.hero-zone {
+  --hb-rgb: 37, 99, 235;   /* couleur principale (bleu royal) */
+  --hb-acc: 99, 102, 241;  /* accent 1 (indigo) */
+  --hb-hi:  6, 182, 212;   /* accent 2 (cyan profond) */
+}
+
+.hb-grid {
+  background-image:
+    linear-gradient(rgba(var(--hb-rgb), .07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--hb-rgb), .07) 1px, transparent 1px);
+}
+
+.hb-glow.g1 { background: radial-gradient(circle, rgba(var(--hb-acc), .10), transparent 65%); }
+.hb-glow.g2 { background: radial-gradient(circle, rgba(var(--hb-hi), .08), transparent 65%); }
+
+.hb-lines line { stroke: rgba(var(--hb-rgb), .32); }
+
+.hb-nodes circle {
+  fill: rgb(var(--hb-rgb)); r: 3.2px;
+  filter: drop-shadow(0 0 4px rgba(var(--hb-rgb), .65));
+  animation-name: hb-pulse-glow;
+}
+.hb-nodes circle:nth-child(3n) {
+  fill: rgb(var(--hb-acc));
+  filter: drop-shadow(0 0 4px rgba(var(--hb-acc), .65));
+}
+.hb-nodes circle:nth-child(5n) {
+  fill: rgb(var(--hb-hi));
+  filter: drop-shadow(0 0 4px rgba(var(--hb-hi), .65));
+}
+
+.hero-visual .r1 { border-color: rgba(var(--hb-rgb), .42); }
+.hero-visual .r2 {
+  border-color: rgba(var(--hb-rgb), .25);
+  background: radial-gradient(circle, rgba(var(--hb-acc), .10), transparent 70%);
+}
+.hero-visual .sweep {
+  background: conic-gradient(from 0deg,
+    rgba(var(--hb-hi), 0) 0deg,
+    rgba(var(--hb-hi), 0) 285deg,
+    rgba(var(--hb-hi), .24) 359deg,
+    rgba(var(--hb-hi), 0) 360deg);
+}
+.hero-visual .ping { border-color: rgba(var(--hb-rgb), .40); }
+
+@keyframes hb-pulse-glow {
+  0%, 100% { opacity: .65; transform: scale(1); }
+  50%      { opacity: 1;   transform: scale(1.4); }
+}
