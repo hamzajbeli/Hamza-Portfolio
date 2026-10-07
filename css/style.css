@@ -475,3 +475,29 @@ h3 { font-size: 1.15rem; font-weight: 600; }
   0%, 100% { opacity: .35; transform: scale(1); }
   50%      { opacity: .75; transform: scale(1.35); }
 }
+/* ===== Fond animé : une seule couleur pilote tout ===== */
+.hero-zone {
+  --hb-rgb: 21, 101, 216;   /* couleur du fond animé (R, G, B) */
+}
+
+.hb-grid {
+  background-image:
+    linear-gradient(rgba(var(--hb-rgb), .04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--hb-rgb), .04) 1px, transparent 1px);
+}
+.hb-glow.g1 { background: radial-gradient(circle, rgba(var(--hb-rgb), .05), transparent 65%); }
+.hb-glow.g2 { background: radial-gradient(circle, rgba(var(--hb-rgb), .04), transparent 65%); }
+
+.hb-lines line { stroke: rgba(var(--hb-rgb), .12); }
+
+.hb-nodes circle,
+.hb-nodes circle:nth-child(5n) { fill: rgb(var(--hb-rgb)); }
+
+.hero-visual .sweep {
+  background: conic-gradient(from 0deg,
+    rgba(var(--hb-rgb), 0) 0deg,
+    rgba(var(--hb-rgb), 0) 285deg,
+    rgba(var(--hb-rgb), .12) 359deg,
+    rgba(var(--hb-rgb), 0) 360deg);
+}
+.hero-visual .ping { border-color: rgba(var(--hb-rgb), .25); }
