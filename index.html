@@ -8,24 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-
-  <!-- Style de la fenêtre d'aperçu des projets -->
-  <style>
-    .proj-open { color: inherit; text-decoration: none; cursor: pointer; }
-    .proj-open:hover, .proj-open:focus-visible { text-decoration: underline; }
-    .pm { position: fixed; inset: 0; background: rgba(0,0,0,.65); display: flex;
-          align-items: center; justify-content: center; padding: 1rem; z-index: 1000; }
-    .pm[hidden] { display: none; }
-    .pm-box { background: #111827; color: #e5e7eb; max-width: 640px; width: 100%;
-              max-height: 85vh; overflow-y: auto; border-radius: 14px;
-              padding: 2rem; position: relative; }
-    .pm-box h3 { margin-top: 0; color: #fff; }
-    .pm-box h4 { margin: 1.2rem 0 .3rem; color: #fff; }
-    .pm-box a { color: inherit; }
-    .pm-close { position: absolute; top: .6rem; right: 1rem; background: none;
-                border: 0; color: inherit; font-size: 1.8rem; cursor: pointer; }
-  </style>
+  <link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
   <a class="skip" href="#contenu">Aller au contenu</a>
@@ -45,7 +28,7 @@
   </header>
 
   <main id="contenu">
-         <!-- Accueil -->
+    <!-- Accueil -->
     <div class="hero-zone">
       <div class="hero-bg" aria-hidden="true">
         <div class="hb-grid"></div>
@@ -357,56 +340,3 @@
       </div>
     </section>
   </main>
-
-  <footer class="foot">
-    <div class="wrap">© 2026 Hamza Jbeli</div>
-  </footer>
-
-  <!-- Fenêtre d'aperçu des projets -->
-  <div id="projModal" class="pm" hidden>
-    <div class="pm-box" role="dialog" aria-modal="true" aria-label="Détails du projet">
-      <button class="pm-close" aria-label="Fermer">×</button>
-      <div id="pmContent"></div>
-    </div>
-  </div>
-
-  <script>
-  (function () {
-    var modal = document.getElementById('projModal');
-    var content = document.getElementById('pmContent');
-    var lastFocus = null;
-
-    function close() {
-      modal.hidden = true;
-      document.body.style.overflow = '';
-      if (lastFocus) lastFocus.focus();
-    }
-
-    document.querySelectorAll('.proj-open').forEach(function (link) {
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
-        lastFocus = link;
-        var card = link.closest('article');
-        var tags = card.querySelector('.tags');
-        var detail = card.querySelector('.proj-detail');
-        var code = card.querySelector(':scope > a');
-        content.innerHTML =
-          '<h3>' + link.textContent + '</h3>' +
-          (tags ? tags.outerHTML : '') +
-          (detail ? detail.innerHTML : '') +
-          (code ? '<p><a href="' + code.href + '">Voir le code</a></p>' : '');
-        modal.hidden = false;
-        document.body.style.overflow = 'hidden';
-        modal.querySelector('.pm-close').focus();
-      });
-    });
-
-    modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
-    modal.querySelector('.pm-close').addEventListener('click', close);
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && !modal.hidden) close();
-    });
-  })();
-  </script>
-</body>
-</html>
