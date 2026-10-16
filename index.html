@@ -303,6 +303,104 @@
           <p>D'autres projets et labs sont en cours. Retrouve l'ensemble de mon travail sur GitHub.</p>
           <a href="https://github.com/hamzajbeli?tab=repositories">Voir mon GitHub</a>
         </article>
+                <article class="card reveal">
+          <h3><a href="#" class="proj-open">Architecture de prévention Anti-DDoS</a></h3>
+          <p>Architecture de prévention des attaques DDoS de couche applicative (couche 7), construite avec des outils open source. Projet réalisé en binôme.</p>
+          <ul class="tags"><li>Couche 7</li><li>Open source</li><li>Docker</li><li>VMware</li></ul>
+          <a href="https://github.com/hamzajbeli?tab=repositories">Voir le code</a>
+
+          <div class="proj-detail" hidden>
+            <h4>Objectif</h4>
+            <p>Protéger une application web contre les attaques DDoS qui visent la couche applicative, avec une architecture bâtie sur des outils open source.</p>
+            <h4>Environnement</h4>
+            <p>Machines virtuelles sous VMware Workstation : une VM Linux avec Docker et Docker Compose, et une application cible conteneurisée.</p>
+            <h4>Livrables</h4>
+            <p>Validation technique de l'architecture, présentation et mini-rapport.</p>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3><a href="#" class="proj-open">Backbone IP/MPLS</a></h3>
+          <p>Conception et configuration d'un réseau backbone IP/MPLS avec routage OSPF et BGP.</p>
+          <ul class="tags"><li>IP/MPLS</li><li>OSPF</li><li>BGP</li><li>GNS3</li></ul>
+          <a href="https://github.com/hamzajbeli?tab=repositories">Voir le code</a>
+
+          <div class="proj-detail" hidden>
+            <h4>Objectif</h4>
+            <p>Mettre en place un backbone opérateur basé sur IP/MPLS.</p>
+            <h4>Technologies</h4>
+            <p>OSPF pour le routage interne, MPLS pour la commutation par étiquettes et BGP pour l'échange de routes.</p>
+            <!-- À compléter avec la topologie, les équipements et les résultats réels -->
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3><a href="#" class="proj-open">Analyse du malware Formbook</a></h3>
+          <p>Analyse du malware Formbook, un voleur d'informations (infostealer) : étude de son comportement et identification des indicateurs de compromission.</p>
+          <ul class="tags"><li>Analyse de malware</li><li>VirusTotal</li><li>Process Monitor</li><li>PEiD</li></ul>
+          <a href="https://github.com/hamzajbeli?tab=repositories">Voir le code</a>
+
+          <div class="proj-detail" hidden>
+            <h4>Objectif</h4>
+            <p>Comprendre le fonctionnement de Formbook, un infostealer très répandu, et documenter ses indicateurs de compromission.</p>
+            <h4>Approche</h4>
+            <p>Analyse statique du fichier (identification, packer, réputation sur VirusTotal) puis observation de son comportement avec Process Monitor.</p>
+            <!-- À compléter avec tes constats réels (persistance, communications, IOC) -->
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <span class="badge">En cours</span>
+          <h3><a href="#" class="proj-open">Infrastructure réseau et postes sécurisés</a></h3>
+          <p>Conception d'une infrastructure réseau segmentée en zones LAN, DMZ et WAN, protégée par un pare-feu pfSense, avec durcissement des postes et tests de sécurité.</p>
+          <ul class="tags"><li>pfSense</li><li>VMware</li><li>Ubuntu Server</li><li>Kali Linux</li><li>Segmentation</li></ul>
+          <a href="https://github.com/hamzajbeli?tab=repositories">Voir le code</a>
+
+          <div class="proj-detail" hidden>
+            <h4>Statut</h4>
+            <p>Projet en cours, réparti sur 6 semaines. La conception de la topologie, le plan IP, les zones de sécurité et le déploiement des machines sont terminés, avec des tests de connectivité entre le LAN et la DMZ.</p>
+            <h4>Objectif</h4>
+            <p>Bâtir un réseau segmenté et sécurisé par un pare-feu, avec des postes durcis, puis valider le tout par des tests.</p>
+            <h4>Livrables</h4>
+            <p>Topologie réseau, configuration du pare-feu, checklist de durcissement, résultats des tests et rapport.</p>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <span class="badge">En cours</span>
+          <h3><a href="#" class="proj-open">SOC intelligent : détection et réponse aux incidents</a></h3>
+          <p>SOC qui combine Wazuh, Suricata, machine learning et SOAR pour détecter les attaques réseau et les malwares, évaluer leur risque et déclencher une réponse automatisée. Projet d'équipe.</p>
+          <ul class="tags"><li>Wazuh</li><li>Suricata</li><li>Machine learning</li><li>Shuffle</li><li>Cortex</li><li>TheHive</li><li>MISP</li></ul>
+          <a href="https://github.com/hamzajbeli?tab=repositories">Voir le code</a>
+
+          <div class="proj-detail" hidden>
+            <h4>Statut</h4>
+            <p>Projet en cours, réalisé en équipe de trois personnes.</p>
+            <h4>Détection</h4>
+            <p>Des agents Wazuh sur les postes et Suricata en IDS/IPS remontent les alertes vers un manager Wazuh qui sert de SIEM central.</p>
+            <h4>Couche IA</h4>
+            <p>Des modèles de machine learning séparés pour le réseau et pour les malwares classent les attaques, détectent les anomalies de type zero-day et calculent un score de risque. Leurs décisions sont expliquées, et un LLM propose les contre-mesures.</p>
+            <h4>Réponse automatisée</h4>
+            <p>Shuffle orchestre la réponse, Cortex enrichit les alertes avec MISP et exécute les actions (comme le blocage d'IP sur pfSense), et TheHive enregistre les incidents.</p>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <span class="badge">En cours</span>
+          <h3><a href="#" class="proj-open">DevSecOps : MediTrack</a></h3>
+          <p>Application Spring Boot de gestion médicale avec rôles patient, médecin et administrateur, développée de zéro pour mettre en place un pipeline DevSecOps avec GitHub Actions.</p>
+          <ul class="tags"><li>Spring Boot</li><li>Java 17</li><li>PostgreSQL</li><li>Docker</li><li>GitHub Actions</li></ul>
+          <a href="https://github.com/hamzajbeli/meditrack">Voir le code</a>
+
+          <div class="proj-detail" hidden>
+            <h4>Statut</h4>
+            <p>Projet en cours : l'application fonctionne, le pipeline DevSecOps est en préparation.</p>
+            <h4>Application</h4>
+            <p>Application Spring Boot avec trois rôles (patient, médecin, administrateur), des données fictives et un contrôle d'accès testé pour chaque rôle.</p>
+            <h4>Prochaines étapes</h4>
+            <p>Introduire des failles volontaires, puis les détecter automatiquement avec un pipeline GitHub Actions.</p>
+          </div>
+        </article>
       </div>
     </section>
 
