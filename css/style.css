@@ -637,3 +637,10 @@ h3 { font-size: 1.15rem; font-weight: 600; }
     }
   }
 }
+/* Badge de statut des projets */
+.badge {
+  align-self: flex-start; margin-bottom: .7rem;
+  font: 600 .72rem "JetBrains Mono", monospace; letter-spacing: .04em; text-transform: uppercase;
+  color: #8a5a00; background: #fff4dc; border: 1px solid #f3dca4;
+  padding: .2rem .65rem; border-radius: 999px;
+}
