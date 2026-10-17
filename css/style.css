@@ -644,3 +644,27 @@ h3 { font-size: 1.15rem; font-weight: 600; }
   color: #8a5a00; background: #fff4dc; border: 1px solid #f3dca4;
   padding: .2rem .65rem; border-radius: 999px;
 }
+
+/* Certifications cliquables */
+.certs li.cert { padding: 0; }
+.cert-open {
+  display: block; width: 100%; height: 100%; padding: 1.2rem;
+  text-align: left; font: inherit; color: inherit;
+  background: none; border: 0; border-radius: var(--radius); cursor: pointer;
+}
+.cert-open:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.cert-open b { display: block; font-family: "Sora", sans-serif; font-size: 1.1rem; margin-bottom: .4rem; }
+.cert-open span { display: block; color: var(--muted); font-size: .92rem; line-height: 1.45; }
+.cert-open::after {
+  content: "Voir le justificatif →"; display: block; margin-top: .7rem;
+  color: var(--accent); font-weight: 600; font-size: .85rem;
+}
+
+/* Espace avant le titre « Langues » */
+.certs + .group-title { margin-top: 2.8rem; }
+
+/* Justificatif dans la fenêtre */
+.pm-box .cert-img {
+  width: 100%; height: auto; margin-top: .6rem; border-radius: 10px;
+  border: 1px solid rgba(143, 190, 255, .30); background: #fff;
+}
