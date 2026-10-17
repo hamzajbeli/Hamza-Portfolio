@@ -9,6 +9,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="css/style.css?v=9">
+  <style>
+    html { scroll-behavior: smooth; }
+    .skill-card { scroll-margin-top: 96px; }
+    .skill-card:target { box-shadow: 0 0 0 2px #3b82f6, 0 10px 30px rgba(59,130,246,.25); }
+    .hero-visual a.chip { text-decoration: none; cursor: pointer; pointer-events: auto; }
+    .hero-visual a.chip:hover, .hero-visual a.chip:focus-visible { filter: brightness(.95); box-shadow: 0 0 0 3px rgba(96,165,250,.6); outline: none; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
 </head>
 <body>
   <a class="skip" href="#contenu">Aller au contenu</a>
@@ -74,10 +82,10 @@
         <div class="hero-text">
           <p class="status"><span class="dot" aria-hidden="true"></span>Disponible pour un stage PFE ou un poste en sécurité</p>
           <h1>Hamza Jbeli</h1>
-          <p class="lead">Étudiant ingénieur en sécurité des réseaux et des systèmes informatiques à Tek-up.</p>
+          <p class="lead">Étudiant ingénieur en cybersécurité, spécialisé en sécurité des réseaux et des systèmes informatiques.</p>
         </div>
 
-        <div class="hero-visual" role="img" aria-label="Bouclier de cybersécurité entouré de SOC, DevSecOps, Pentest et Réseaux">
+        <div class="hero-visual" role="group" aria-label="Domaines de compétences : SOC, DevSecOps, Pentest et Réseaux">
           <span class="ring r1" aria-hidden="true"></span>
           <span class="sweep" aria-hidden="true"></span>
           <span class="ring r2" aria-hidden="true"></span>
@@ -93,10 +101,10 @@
             <path d="M60 6l48 18v40c0 32-20 56-48 70C32 120 12 96 12 64V24L60 6z" fill="url(#shieldGrad)"/>
             <path d="M38 70l16 16 30-34" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          <span class="chip c1">SOC</span>
-          <span class="chip c2">DevSecOps</span>
-          <span class="chip c3">Pentest</span>
-          <span class="chip c4">Réseaux</span>
+          <a class="chip c1" href="#skill-soc">SOC</a>
+          <a class="chip c2" href="#skill-devsecops">DevSecOps</a>
+          <a class="chip c3" href="#skill-pentest">Pentest</a>
+          <a class="chip c4" href="#skill-reseaux">Réseaux</a>
         </div>
       </section>
     </div>
@@ -121,7 +129,7 @@
       <h2>Compétences</h2>
       <div class="skills">
 
-        <article class="skill-card reveal">
+        <article class="skill-card reveal" id="skill-soc">
           <div class="skill-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.2 8.2-8 9-4.8-.8-8-4.5-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
           </div>
@@ -142,7 +150,7 @@
           </ul>
         </article>
 
-        <article class="skill-card reveal">
+        <article class="skill-card reveal" id="skill-reseaux">
           <div class="skill-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.7 4 5.7 4 9s-1.5 6.3-4 9c-2.5-2.7-4-5.7-4-9s1.5-6.3 4-9z"/></svg>
           </div>
@@ -165,7 +173,7 @@
           </ul>
         </article>
 
-        <article class="skill-card reveal">
+        <article class="skill-card reveal" id="skill-devsecops">
           <div class="skill-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8l-4 4 4 4"/><path d="M16 8l4 4-4 4"/><path d="M13.5 6l-3 12"/></svg>
           </div>
@@ -186,7 +194,7 @@
           </ul>
         </article>
 
-        <article class="skill-card reveal">
+        <article class="skill-card reveal" id="skill-pentest">
           <div class="skill-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
           </div>
