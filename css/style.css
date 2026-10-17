@@ -660,11 +660,11 @@ h3 { font-size: 1.15rem; font-weight: 600; }
   color: var(--accent); font-weight: 600; font-size: .85rem;
 }
 
-/* Espace avant le titre « Langues » */
-.certs + .group-title { margin-top: 2.8rem; }
+/* Titre « Langues » : même style que « Certifications » */
+#langues { margin-top: 4rem; }
 
 /* Justificatif dans la fenêtre */
 .pm-box .cert-img {
-  width: 100%; height: auto; margin-top: .6rem; border-radius: 10px;
+  display: block; width: auto; max-width: 100%; height: auto; margin: .6rem auto 0; border-radius: 10px;
   border: 1px solid rgba(143, 190, 255, .30); background: #fff;
 }
