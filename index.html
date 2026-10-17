@@ -215,13 +215,12 @@
       <p class="sub">Projets académiques et personnels. Clique sur le nom d'un projet pour voir les détails.</p>
 
       <div class="grid">
-        <!-- Remplace chaque lien "Voir le code" par l'URL exacte du dépôt quand il sera créé -->
 
         <article class="card reveal">
           <h3><a href="#" class="proj-open">Plateforme centralisée de pentesting</a></h3>
           <p>Plateforme web développée avec Python (Flask) et SQLite pour orchestrer des scans de vulnérabilités et générer automatiquement des rapports détaillés.</p>
           <ul class="tags"><li>Flask</li><li>SQLite</li><li>Nmap</li><li>SQLMap</li></ul>
-          <a href="https://github.com/hamzajbeli?tab=repositories">Voir le code</a>
+          <a href="https://github.com/hamzajbeli/pentest-platform" target="_blank" rel="noopener">Voir le code</a>
 
           <div class="proj-detail" hidden>
             <h4>Objectif</h4>
@@ -230,7 +229,6 @@
             <p>Une application web Flask pilote des outils comme Nmap et SQLMap, enregistre les résultats dans une base SQLite, puis génère le rapport.</p>
             <h4>Résultats</h4>
             <p>Des rapports détaillés produits automatiquement à partir des scans, sans manipulation manuelle des sorties d'outils.</p>
-            <!-- Ajoute ici tes captures ou chiffres réels (nombre de cibles, temps gagné, etc.) -->
           </div>
         </article>
 
@@ -238,7 +236,7 @@
           <h3><a href="#" class="proj-open">Test d'intrusion OWASP Juice Shop</a></h3>
           <p>Identification et exploitation de vulnérabilités (injection SQL, XSS, IDOR), puis analyse des risques avec le score CVSS.</p>
           <ul class="tags"><li>Burp Suite</li><li>OWASP ZAP</li><li>CVSS</li></ul>
-          <a href="https://github.com/hamzajbeli?tab=repositories">Voir le code</a>
+          <a href="https://github.com/hamzajbeli/juice-shop-pentest" target="_blank" rel="noopener">Voir le code</a>
 
           <div class="proj-detail" hidden>
             <h4>Objectif</h4>
@@ -254,7 +252,7 @@
           <h3><a href="#" class="proj-open">Infrastructure DevSecOps et SOC automatisé</a></h3>
           <p>Pipeline CI/CD sécurisé (analyse de code, conteneurs durcis) et SOC automatisé avec Ansible pour la détection et la réponse aux incidents.</p>
           <ul class="tags"><li>Jenkins</li><li>SonarQube</li><li>Trivy</li><li>Wazuh</li><li>Suricata</li><li>Shuffle</li><li>Ansible</li></ul>
-          <a href="https://github.com/hamzajbeli?tab=repositories">Voir le code</a>
+          <a href="https://github.com/hamzajbeli/devsecops-soc-automation" target="_blank" rel="noopener">Voir le code</a>
 
           <div class="proj-detail" hidden>
             <h4>Objectif</h4>
@@ -267,10 +265,11 @@
         </article>
 
         <article class="card reveal">
+          <span class="badge">En cours</span>
           <h3><a href="#" class="proj-open">SOC : détection du beaconing</a></h3>
           <p>Détection automatique du beaconing C2 en analysant la périodicité des connexions réseau, une menace invisible pour les outils de sécurité classiques.</p>
           <ul class="tags"><li>Zeek</li><li>Elasticsearch</li><li>Beaconing</li></ul>
-          <a href="https://github.com/hamzajbeli?tab=repositories">Voir le code</a>
+          <a href="https://github.com/hamzajbeli/beaconing-detection-soc" target="_blank" rel="noopener">Voir le code</a>
 
           <div class="proj-detail" hidden>
             <h4>Problème</h4>
@@ -286,7 +285,7 @@
           <h3><a href="#" class="proj-open">Sécurité blockchain : front-running</a></h3>
           <p>Analyse des vulnérabilités des smart contracts, en particulier le front-running, et bonnes pratiques de développement Web3 sécurisé.</p>
           <ul class="tags"><li>Solidity</li><li>Blockchain</li><li>Smart contracts</li></ul>
-          <a href="https://github.com/hamzajbeli?tab=repositories">Voir le code</a>
+          <a href="https://github.com/hamzajbeli/smart-contract-front-running" target="_blank" rel="noopener">Voir le code</a>
 
           <div class="proj-detail" hidden>
             <h4>Sujet</h4>
@@ -297,19 +296,20 @@
             <p>Bonnes pratiques de développement Web3 sécurisé pour limiter ce type d'attaque.</p>
           </div>
         </article>
-                <article class="card reveal">
+
+        <article class="card reveal">
           <h3><a href="#" class="proj-open">Architecture de prévention Anti-DDoS</a></h3>
           <p>Architecture de prévention des attaques DDoS de couche applicative (couche 7), construite avec des outils open source. Projet réalisé en binôme.</p>
-          <ul class="tags"><li>Couche 7</li><li>Open source</li><li>Docker</li><li>VMware</li></ul>
-          <a href="https://github.com/hamzajbeli?tab=repositories">Voir le code</a>
+          <ul class="tags"><li>Couche 7</li><li>Open source</li><li>NGINX</li><li>ModSecurity</li><li>Podman</li></ul>
+          <a href="https://github.com/hamzajbeli/anti-ddos-l7-architecture" target="_blank" rel="noopener">Voir le code</a>
 
           <div class="proj-detail" hidden>
             <h4>Objectif</h4>
             <p>Protéger une application web contre les attaques DDoS qui visent la couche applicative, avec une architecture bâtie sur des outils open source.</p>
             <h4>Environnement</h4>
-            <p>Machines virtuelles sous VMware Workstation : une VM Linux avec Docker et Docker Compose, et une application cible conteneurisée.</p>
-            <h4>Livrables</h4>
-            <p>Validation technique de l'architecture, présentation et mini-rapport.</p>
+            <p>Hôte RHEL 9.5 avec Podman : un reverse proxy NGINX (ModSecurity, OWASP CRS, limitation de débit) devant une application cible conteneurisée, avec Suricata et Fail2ban.</p>
+            <h4>Résultats</h4>
+            <p>Lors d'un flood de 100 000 requêtes, 99,65 % ont été rejetées par la limitation de débit. Le reverse proxy ajoute environ 12 ms de latence.</p>
           </div>
         </article>
 
@@ -317,29 +317,43 @@
           <h3><a href="#" class="proj-open">Backbone IP/MPLS</a></h3>
           <p>Conception et configuration d'un réseau backbone IP/MPLS avec routage OSPF et BGP.</p>
           <ul class="tags"><li>IP/MPLS</li><li>OSPF</li><li>BGP</li><li>GNS3</li></ul>
-          <a href="https://github.com/hamzajbeli?tab=repositories">Voir le code</a>
+          <a href="https://github.com/hamzajbeli/ip-mpls-backbone" target="_blank" rel="noopener">Voir le code</a>
 
           <div class="proj-detail" hidden>
             <h4>Objectif</h4>
             <p>Mettre en place un backbone opérateur basé sur IP/MPLS.</p>
             <h4>Technologies</h4>
-            <p>OSPF pour le routage interne, MPLS pour la commutation par étiquettes et BGP pour l'échange de routes.</p>
-            <!-- À compléter avec la topologie, les équipements et les résultats réels -->
+            <p>OSPF pour le routage interne, LDP pour la distribution des étiquettes, MPLS pour la commutation et MP-BGP pour l'échange des routes VPN entre les routeurs de bord.</p>
           </div>
         </article>
 
         <article class="card reveal">
           <h3><a href="#" class="proj-open">Analyse du malware Formbook</a></h3>
           <p>Analyse du malware Formbook, un voleur d'informations (infostealer) : étude de son comportement et identification des indicateurs de compromission.</p>
-          <ul class="tags"><li>Analyse de malware</li><li>VirusTotal</li><li>Process Monitor</li><li>PEiD</li></ul>
-          <a href="https://github.com/hamzajbeli?tab=repositories">Voir le code</a>
+          <ul class="tags"><li>Analyse de malware</li><li>VirusTotal</li><li>Detect It Easy</li><li>CAPE Sandbox</li></ul>
+          <a href="https://github.com/hamzajbeli/formbook-malware-analysis" target="_blank" rel="noopener">Voir le code</a>
 
           <div class="proj-detail" hidden>
             <h4>Objectif</h4>
             <p>Comprendre le fonctionnement de Formbook, un infostealer très répandu, et documenter ses indicateurs de compromission.</p>
             <h4>Approche</h4>
-            <p>Analyse statique du fichier (identification, packer, réputation sur VirusTotal) puis observation de son comportement avec Process Monitor.</p>
-            <!-- À compléter avec tes constats réels (persistance, communications, IOC) -->
+            <p>Analyse automatique (VirusTotal, Hybrid Analysis), analyse statique (Detect It Easy, ExifTool, Strings) puis exécution dans la sandbox CAPE pour observer son comportement.</p>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3><a href="#" class="proj-open">Sécurisation réseau et WAF F5 BIG-IP</a></h3>
+          <p>Maquette EVE-NG avec pare-feu FortiGate, routage OSPF, tunnel VPN IPsec et WAF F5 BIG-IP protégeant l'application vulnérable DVWA. Projet réalisé en binôme.</p>
+          <ul class="tags"><li>FortiGate</li><li>IPsec</li><li>OSPF</li><li>F5 BIG-IP</li><li>DVWA</li><li>EVE-NG</li></ul>
+          <a href="https://github.com/hamzajbeli/fortigate-f5-waf-lab" target="_blank" rel="noopener">Voir le code</a>
+
+          <div class="proj-detail" hidden>
+            <h4>Objectif</h4>
+            <p>Montrer qu'un VPN chiffre le lien entre deux sites sans protéger l'application, puis placer un WAF devant elle pour bloquer les attaques.</p>
+            <h4>Démarche</h4>
+            <p>Deux sites reliés par OSPF et un tunnel IPsec, DVWA derrière un F5 BIG-IP (LTM et ASM). Huit attaques web sont rejouées depuis deux machines Kali, avec puis sans WAF.</p>
+            <h4>Résultats</h4>
+            <p>Sans WAF, toutes les attaques aboutissent, y compris à travers le tunnel VPN. Avec le WAF, elles sont bloquées et consignées dans les journaux.</p>
           </div>
         </article>
 
@@ -347,7 +361,6 @@
           <h3><a href="#" class="proj-open">Infrastructure réseau et postes sécurisés</a></h3>
           <p>Conception d'une infrastructure réseau segmentée en zones LAN, DMZ et WAN, protégée par un pare-feu pfSense, avec durcissement des postes et tests de sécurité.</p>
           <ul class="tags"><li>pfSense</li><li>VMware</li><li>Ubuntu Server</li><li>Kali Linux</li><li>Segmentation</li></ul>
-          <a href="https://github.com/hamzajbeli?tab=repositories">Voir le code</a>
 
           <div class="proj-detail" hidden>
             <h4>Statut</h4>
@@ -364,7 +377,7 @@
           <h3><a href="#" class="proj-open">SOC intelligent : détection et réponse aux incidents</a></h3>
           <p>SOC qui combine Wazuh, Suricata, machine learning et SOAR pour détecter les attaques réseau et les malwares, évaluer leur risque et déclencher une réponse automatisée. Projet d'équipe.</p>
           <ul class="tags"><li>Wazuh</li><li>Suricata</li><li>Machine learning</li><li>Shuffle</li><li>Cortex</li><li>TheHive</li><li>MISP</li></ul>
-          <a href="https://github.com/hamzajbeli?tab=repositories">Voir le code</a>
+          <a href="https://github.com/hamzajbeli/intelligent-soc" target="_blank" rel="noopener">Voir le code</a>
 
           <div class="proj-detail" hidden>
             <h4>Statut</h4>
@@ -383,14 +396,14 @@
           <h3><a href="#" class="proj-open">DevSecOps : MediTrack</a></h3>
           <p>Application Spring Boot de gestion médicale avec rôles patient, médecin et administrateur, développée de zéro pour mettre en place un pipeline DevSecOps avec GitHub Actions.</p>
           <ul class="tags"><li>Spring Boot</li><li>Java 17</li><li>PostgreSQL</li><li>Docker</li><li>GitHub Actions</li></ul>
-          <a href="https://github.com/hamzajbeli/meditrack">Voir le code</a>
+          <a href="https://github.com/hamzajbeli/meditrack" target="_blank" rel="noopener">Voir le code</a>
 
           <div class="proj-detail" hidden>
             <h4>Statut</h4>
             <p>Projet en cours : l'application fonctionne, le pipeline DevSecOps est en préparation.</p>
             <h4>Application</h4>
             <p>Application Spring Boot avec trois rôles (patient, médecin, administrateur), des données fictives et un contrôle d'accès testé pour chaque rôle.</p>
-                        <h4>Prochaines étapes</h4>
+            <h4>Prochaines étapes</h4>
             <p>Des failles volontaires (injection SQL, IDOR, mauvaise configuration) sont déjà introduites. Il reste à les détecter automatiquement avec un pipeline GitHub Actions, puis à les corriger.</p>
           </div>
         </article>
@@ -529,7 +542,7 @@
         '<h3></h3>' +
         (tags ? tags.outerHTML : '') +
         (detail ? detail.innerHTML : '') +
-        (codeLink ? '<p><a href="' + codeLink.href + '">Voir le code</a></p>' : '');
+        (codeLink ? '<p><a href="' + codeLink.href + '" target="_blank" rel="noopener">Voir le code</a></p>' : '');
       content.querySelector('h3').textContent = link.textContent;
 
       lastFocus = link;
