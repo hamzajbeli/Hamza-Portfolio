@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="css/style.css?v=9">
+   <link rel="stylesheet" href="css/style.css?v=10">
   <style>
     html { scroll-behavior: smooth; }
     .skill-card { scroll-margin-top: 96px; }
@@ -481,20 +481,27 @@
     <!-- Certifications -->
     <section class="wrap section" id="certifications">
       <h2>Certifications</h2>
+      <p class="sub">Clique sur une certification pour voir son justificatif.</p>
       <ul class="certs">
-        <li><b>RHCSA</b><span>Red Hat Certified System Administrator</span></li>
-        <li><b>CCSC</b><span>Cybersecurity Career Starter Certification</span></li>
-        <li><b>OCI AI Foundations</b><span>Oracle Cloud Infrastructure, AI Foundations Associate</span></li>
-        <li><b>CPPS</b><span>Certified Phishing Prevention Specialist</span></li>
-        <li><b>Introduction to Cybersecurity</b><span>Cisco NetAcad</span></li>
-        <li><b>Cloud Computing 101</b><span>Introduction to Cloud Computing 101</span></li>
+        <li class="cert"><button type="button" class="cert-open" data-img="assets/certs/rhcsa.jpg" data-verify="" data-desc="Certification Red Hat attestant la maîtrise de l'administration système Linux (RHEL).">
+          <b>RHCSA</b><span>Red Hat Certified System Administrator</span></button></li>
+        <li class="cert"><button type="button" class="cert-open" data-img="assets/certs/ccsc.jpg" data-verify="" data-desc="Certification d'initiation aux métiers de la cybersécurité.">
+          <b>CCSC</b><span>Cybersecurity Career Starter Certification</span></button></li>
+        <li class="cert"><button type="button" class="cert-open" data-img="assets/certs/oci-ai.jpg" data-verify="" data-desc="Certification Oracle sur les fondamentaux de l'intelligence artificielle et du machine learning.">
+          <b>OCI AI Foundations</b><span>Oracle Cloud Infrastructure, AI Foundations Associate</span></button></li>
+        <li class="cert"><button type="button" class="cert-open" data-img="assets/certs/cpps.jpg" data-verify="" data-desc="Certification sur la prévention et la détection des attaques de phishing.">
+          <b>CPPS</b><span>Certified Phishing Prevention Specialist</span></button></li>
+        <li class="cert"><button type="button" class="cert-open" data-img="assets/certs/cisco-intro-cyber.jpg" data-verify="" data-desc="Cours Cisco NetAcad d'introduction à la cybersécurité.">
+          <b>Introduction to Cybersecurity</b><span>Cisco NetAcad</span></button></li>
+        <li class="cert"><button type="button" class="cert-open" data-img="assets/certs/cloud-101.jpg" data-verify="" data-desc="Formation d'introduction aux concepts du cloud computing.">
+          <b>Cloud Computing 101</b><span>Introduction to Cloud Computing 101</span></button></li>
       </ul>
 
       <h3 class="group-title">Langues</h3>
-      <ul class="langs">
-        <li><b>Français</b> Bon</li>
-        <li><b>Anglais</b> Intermédiaire</li>
-        <li><b>Arabe</b> Langue maternelle</li>
+      <ul class="certs">
+        <li><b>Français</b><span>Bon</span></li>
+        <li><b>Anglais</b><span>Intermédiaire</span></li>
+        <li><b>Arabe</b><span>Langue maternelle</span></li>
       </ul>
     </section>
 
@@ -517,9 +524,9 @@
     <div class="wrap">© 2026 Hamza Jbeli</div>
   </footer>
 
-  <!-- Fenêtre d'aperçu des projets -->
+  <!-- Fenêtre d'aperçu des projets et des certifications -->
   <div id="projModal" class="pm" hidden>
-    <div class="pm-box" role="dialog" aria-modal="true" aria-label="Détails du projet">
+    <div class="pm-box" role="dialog" aria-modal="true" aria-label="Détails">
       <button class="pm-close" type="button" aria-label="Fermer">×</button>
       <div id="pmContent"></div>
     </div>
@@ -556,6 +563,40 @@
       if (closeBtn) closeBtn.focus();
     }
 
+    function openCert(btn) {
+      var title = btn.querySelector('b').textContent;
+      content.innerHTML = '<h3></h3><p class="cert-desc"></p><div class="cert-proof"></div>';
+      content.querySelector('h3').textContent = title;
+      content.querySelector('.cert-desc').textContent = btn.dataset.desc || '';
+
+      var proof = content.querySelector('.cert-proof');
+      if (btn.dataset.img) {
+        var img = new Image();
+        img.className = 'cert-img';
+        img.alt = 'Certificat : ' + title;
+        img.onerror = function () {
+          proof.innerHTML = '<p>Justificatif bientôt disponible.</p>';
+        };
+        img.src = btn.dataset.img;
+        proof.appendChild(img);
+      }
+      if (btn.dataset.verify) {
+        var a = document.createElement('a');
+        a.href = btn.dataset.verify;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.textContent = 'Vérifier le certificat';
+        var p = document.createElement('p');
+        p.appendChild(a);
+        content.appendChild(p);
+      }
+
+      lastFocus = btn;
+      modal.hidden = false;
+      document.body.style.overflow = 'hidden';
+      if (closeBtn) closeBtn.focus();
+    }
+
     function closeModal() {
       modal.hidden = true;
       document.body.style.overflow = '';
@@ -567,6 +608,11 @@
       if (link) {
         e.preventDefault();
         openModal(link);
+        return;
+      }
+      var cert = e.target.closest('.cert-open');
+      if (cert) {
+        openCert(cert);
         return;
       }
       if (e.target === modal || e.target === closeBtn) closeModal();
