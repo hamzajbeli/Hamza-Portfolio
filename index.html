@@ -378,15 +378,14 @@
         </article>
 
         <article class="card reveal">
-          <span class="badge">En cours</span>
           <h3><a href="#" class="proj-open">SOC intelligent : détection et réponse aux incidents</a></h3>
           <p>SOC qui combine Wazuh, Suricata, machine learning et SOAR pour détecter les attaques réseau et les malwares, évaluer leur risque et déclencher une réponse automatisée. Projet d'équipe.</p>
           <ul class="tags"><li>Wazuh</li><li>Suricata</li><li>Machine learning</li><li>Shuffle</li><li>Cortex</li><li>TheHive</li><li>MISP</li></ul>
           <a href="https://github.com/hamzajbeli/intelligent-soc" target="_blank" rel="noopener">Voir le code</a>
 
           <div class="proj-detail" hidden>
-            <h4>Statut</h4>
-            <p>Projet en cours, réalisé en équipe de trois personnes.</p>
+            <h4>Contexte</h4>
+            <p>Projet réalisé en équipe de trois personnes.</p>
             <h4>Détection</h4>
             <p>Des agents Wazuh sur les postes et Suricata en IDS/IPS remontent les alertes vers un manager Wazuh qui sert de SIEM central.</p>
             <h4>Couche IA</h4>
@@ -397,19 +396,20 @@
         </article>
 
         <article class="card reveal">
-          <span class="badge">En cours</span>
           <h3><a href="#" class="proj-open">DevSecOps : MediTrack</a></h3>
           <p>Application Spring Boot de gestion médicale avec rôles patient, médecin et administrateur, développée de zéro pour mettre en place un pipeline DevSecOps avec GitHub Actions.</p>
           <ul class="tags"><li>Spring Boot</li><li>Java 17</li><li>PostgreSQL</li><li>Docker</li><li>GitHub Actions</li></ul>
           <a href="https://github.com/hamzajbeli/meditrack" target="_blank" rel="noopener">Voir le code</a>
 
           <div class="proj-detail" hidden>
-            <h4>Statut</h4>
-            <p>Projet en cours : l'application fonctionne, le pipeline DevSecOps est en préparation.</p>
+            <h4>Objectif</h4>
+            <p>Construire un pipeline DevSecOps complet autour d'une application volontairement vulnérable, puis corriger les failles détectées.</p>
             <h4>Application</h4>
             <p>Application Spring Boot avec trois rôles (patient, médecin, administrateur), des données fictives et un contrôle d'accès testé pour chaque rôle.</p>
-            <h4>Prochaines étapes</h4>
-            <p>Des failles volontaires (injection SQL, IDOR, mauvaise configuration) sont déjà introduites. Il reste à les détecter automatiquement avec un pipeline GitHub Actions, puis à les corriger.</p>
+            <h4>Pipeline DevSecOps</h4>
+            <p>Un pipeline GitHub Actions enchaîne le build Maven, l'analyse statique (SonarCloud), l'analyse des dépendances (OWASP Dependency-Check), le scan de l'image Docker (Trivy) et l'analyse dynamique (OWASP ZAP).</p>
+            <h4>Failles et corrections</h4>
+            <p>Des failles volontaires (injection SQL, IDOR, mauvaise configuration, path traversal) ont été introduites, détectées automatiquement par le pipeline, puis corrigées.</p>
           </div>
         </article>
       </div>
